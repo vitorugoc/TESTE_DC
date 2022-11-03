@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('vendedores', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 50);
-            $table->string('codigo_vendedor',20);
+            $table->string('codigo_vendedor',20)->unique();
             $table->timestamps();
         });
     }

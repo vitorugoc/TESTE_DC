@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 50);
             $table->string('sobrenome', 50);
+            $table->string('nome_vendedor', 50);
+            $table->string('codigo_vendedor',50);
             $table->string('cpf', 11);
             $table->timestamps();
         });

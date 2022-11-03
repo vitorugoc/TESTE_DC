@@ -43,7 +43,7 @@
 
                             <td>{{ $vendedor->nome }}</td>
                             <td>{{ $vendedor->codigo_vendedor }}</td>
-                            <td> <a href="">Excluir</a> </td>
+                            <td> <a href="{{ route('vendedor.excluir', $vendedor->id) }}">Excluir</a> </td>
                             <td> <a href="{{ route('vendedor.editar', $vendedor->id) }}">Editar</a> </td>
 
                         </tr>

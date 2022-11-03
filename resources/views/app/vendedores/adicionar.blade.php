@@ -19,6 +19,7 @@
         </div>
 
         <div class="informacao-pagina">
+            {{$msg ?? ''}}
             <div style="width:30%; margin-left:auto; margin-right:auto;">
                 <form method="post" action="{{ route('vendedor.adicionar') }}">
                     @csrf
@@ -29,6 +30,7 @@
                     {{$errors->has('codigo_vendedor') ? $errors->first('codigo_vendedor') : ''}}
                     <button type="submit" class="borda-preta">Cadastrar</button>
                 </form>
+                
             </div>
 
         </div>

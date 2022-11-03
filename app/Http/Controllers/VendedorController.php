@@ -27,7 +27,7 @@ class VendedorController extends Controller
         if($request->input('_token') != '' && $request->input('id') == ''){
             $regras = [
                 'nome' => 'required|min:3|max:50',
-                'codigo_vendedor' => 'required|min:3|max:20'
+                'codigo_vendedor' => 'required|unique:vendedores|min:3|max:20'
             ];
 
             $feedback = [
@@ -36,7 +36,8 @@ class VendedorController extends Controller
                 'nome.max' => 'O campo Nome deve ter no mínimo 40 caracteres',
                 'codigo_vendedor.required' => 'O campo Código vendedor deve ser preenchido',
                 'codigo_vendedor.min' => 'O campo Código vendedor deve ter no mínimo 3 caracteres',
-                'codigo_vendedor.max' => 'O campo Código vendedor deve ter no máximo 40 caracteres'
+                'codigo_vendedor.max' => 'O campo Código vendedor deve ter no máximo 40 caracteres',
+                'codigo_vendedor.unique' => 'O Código vendedor deve ser único'
             ];
 
             $request->validate($regras, $feedback);
@@ -46,7 +47,7 @@ class VendedorController extends Controller
         }
 
         if($request->input('_token') != '' && $request->input('id') != ''){
-            $vendedor = Vendedor::find($request->find('id'));
+            $vendedor = Vendedor::find($request->input('id'));
             $update = $vendedor->update($request->all());
 
             if($update){
@@ -55,7 +56,7 @@ class VendedorController extends Controller
                 $msg = 'Update apresentou problema';
             }
 
-            return redirect()->route('app.vendedores.editar', ['id' => $request->input('id'), 'msg' => $msg]);
+            return redirect()->route('vendedor.editar', ['id' => $request->input('id'), 'msg' => $msg]);
         }
 
         return view('app.vendedores.adicionar');
@@ -65,5 +66,11 @@ class VendedorController extends Controller
         $vendedor = Vendedor::find($id);
 
         return view('app.vendedores.adicionar', ['vendedor' => $vendedor, 'msg' => $msg]);
+    }
+
+    public function excluir($id){
+        Vendedor::find($id)->delete();
+
+        return redirect()->route('vendedor.index');
     }
 }
