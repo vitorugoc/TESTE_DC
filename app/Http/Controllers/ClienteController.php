@@ -91,6 +91,7 @@ class ClienteController extends Controller
             
             if($id >= 1){
                 $update = $cliente->fill(['nome' => $request->nome, 'sobrenome' => $request->sobrenome, 'cpf' => $request->cpf, 'vendedor_id' => $id, 'nome_vendedor' => $nome, 'codigo_vendedor' => $request->codigo_vendedor]);
+                $update->save();
             }else{
                 $update = false;
             }
@@ -110,5 +111,11 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
 
         return view('app.clientes.adicionar', ['cliente' => $cliente, 'msg' => $msg]);
+    }
+
+    public function excluir($id){
+        Cliente::find($id)->delete();
+
+        return redirect()->route('cliente.index');
     }
 }
