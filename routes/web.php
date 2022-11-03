@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\VendedorController;
+
+Route::get('/', [VendedorController::class, 'index'])->name('vendedor.index');
+Route::post('/vendedor/adicionar', [VendedorController::class, 'adicionar'])->name('vendedor.adicionar');
+Route::get('/vendedor/adicionar', [VendedorController::class, 'adicionar'])->name('vendedor.adicionar');
+Route::get('/vendedor/listar', [VendedorController::class, 'listar'])->name('vendedor.listar');
+Route::post('/vendedor/listar', [VendedorController::class, 'listar'])->name('vendedor.listar');
+Route::get('/vendedor/editar/{id}/{msg?}', [VendedorController::class, 'editar'])->name('vendedor.editar');
