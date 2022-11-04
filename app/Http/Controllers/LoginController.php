@@ -8,6 +8,8 @@ use App\Models\User;
 class LoginController extends Controller
 {
     public function index(Request $request){
+        session_start();
+        session_destroy();
         $erro = '';
 
         if($request->get('erro') == 1){
