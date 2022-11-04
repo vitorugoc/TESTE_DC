@@ -4,17 +4,17 @@
 
 @section('conteudo')
     @include('app.layouts._partials.topo')
-
+    
     <div class="conteudo-pagina">
-
+        
         <div class="titulo-pagina-2">
             <p>Cliente</p>
         </div>
 
         <div class="menu">
             <ul>
-                <li><a href="{{ route('cliente.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('cliente.index') }}">Consulta</a></li>
+                <li class="centralizado"><a href="{{ route('cliente.adicionar') }}">Cadastrar</a></li>
+                <li class="centralizado"><a href="{{ route('cliente.index') }}">Listar</a></li>
             </ul>
         </div>
 

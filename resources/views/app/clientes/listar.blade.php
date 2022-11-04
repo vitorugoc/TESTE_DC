@@ -13,14 +13,15 @@
 
         <div class="menu">
             <ul>
-                <li><a href="{{ route('cliente.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('cliente.index') }}">Consulta</a></li>
+                <li><a href="{{ route('cliente.adicionar') }}">Cadastrar</a></li>
+                <li><a href="{{ route('cliente.index') }}">Listar</a></li>
             </ul>
         </div>
 
         <div class="informacao-pagina">
 
             <div style="width:30%; margin-left:auto; margin-right:auto;">
+                <p>Campo de filtros, caso deseje selecionar todos os clientes mantenha em branco!</p>
                 <form method="post" action="{{ route('cliente.listar') }}">
                     @csrf
                     <input type="hidden" name="id" value="{{$cliente->id ?? ''}}">
@@ -31,7 +32,7 @@
                     <input type="text" name="cpf" value="{{$cliente->cpf ?? old('cpf')}}" placeholder="CPF" class="borda-preta">
                     {{$errors->has('cpf') ? $errors->first('cpf') : ''}}
                     <input type="text" name="codigo_vendedor" = value="{{old('vendedor_id')}}" placeholder="Código vendedor" class="borda-preta">
-                    <button type="submit" class="borda-preta">Pesquisar</button>
+                    <button type="submit" class="listar">Pesquisar</button>
                     
                 </form>
             </div>

@@ -13,13 +13,14 @@
 
         <div class="menu">
             <ul>
-                <li><a href="{{ route('venda.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('venda.index') }}">Consulta</a></li>
+                <li><a href="{{ route('venda.adicionar') }}">Listar</a></li>
+                <li><a href="{{ route('venda.index') }}">Cadastrar</a></li>
             </ul>
         </div>
 
         <div class="informacao-pagina">
             <div style="width:30%; margin-left:auto; margin-right:auto;">
+                <p>Campo de filtros, caso deseje selecionar todas as vendas mantenha em branco!</p>
                 <form method="post" action="{{ route('venda.listar') }}">
                     @csrf
                     <input type="hidden" name="id" value="{{ $venda->id ?? '' }}">
@@ -48,7 +49,7 @@
                         <option value="boleto">Boleto Bancário</option>
                         <option value="dinheiro">Dinheiro</option>
                     </select>
-                    <button type="submit" class="borda-preta">Pesquisar</button>
+                    <button type="submit" class="listar">Pesquisar</button>
                 </form>
             </div>
 

@@ -13,8 +13,8 @@
 
         <div class="menu">
             <ul>
-                <li><a href="{{ route('vendedor.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('vendedor.index') }}">Consulta</a></li>
+                <li><a href="{{ route('vendedor.adicionar') }}">Cadastrar</a></li>
+                <li><a href="{{ route('vendedor.index') }}">Listar</a></li>
             </ul>
         </div>
 

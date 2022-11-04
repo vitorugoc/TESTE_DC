@@ -31,6 +31,14 @@ button {
     border-radius: 3px;
     background-color: transparent;
     color: #333;
+
+}
+
+.imagem-logo{
+    height: 40px;
+    width: 40px;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 .texto-branco {
@@ -43,6 +51,12 @@ button {
 
 .borda-preta {
     border: solid 1px #333;
+    
+}
+
+.listar{
+    background-color: #268fd0;
+    border: solid 1px #333;
 }
 
 button {
@@ -53,6 +67,10 @@ button {
 
 button:hover {
     background-color: #6ea22c;
+}
+
+button.listar:hover{
+    background-color: #268fff;
 }
 
 ::placeholder {
@@ -184,24 +202,6 @@ button:hover {
     width: 100%;
 }
 
-.redes-sociais,
-.area-contato,
-.localizacao {
-    width: 33.333%;
-    border-top: solid 1px #ccc;
-    float: left;
-    text-align: center;
-    background-color: #f8f8f8;
-    height: 250px;
-}
-
-.redes-sociais,
-.area-contato,
-.localizacao p,
-span {
-    color: #333333;
-}
-
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
@@ -212,6 +212,9 @@ span {
     margin-right: 5px;
 }
 
-.pagination ul {
-    list-style-type: none;
+.bem-vindo{
+    position: absolute;
+    left: 50px;
+    color: white;
+    margin-top: 16px;
 }
